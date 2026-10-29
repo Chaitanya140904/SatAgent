@@ -1,0 +1,578 @@
+{
+    "version": 1,
+    "root": "/home/project/satagent/sata",
+    "entries": [
+        {
+            "subtask": "roi_masking",
+            "model": "rs_sam",
+            "script_path": "/home/project/satagent/sata/executor/roi_masking/tools/RS_SAM/infer_rs_sam.py",
+            "weights": []
+        },
+        {
+            "subtask": "roi_masking",
+            "model": "cloud_net_plus",
+            "script_path": "/home/project/satagent/sata/executor/roi_masking/tools/CloudNetPlus/infer_cloudnetplus.py",
+            "weights": []
+        },
+        {
+            "subtask": "roi_masking",
+            "model": "yolov8_obb",
+            "script_path": "/home/project/satagent/sata/executor/roi_masking/tools/YOLOv8_OBB/infer_yolov8_obb.py",
+            "weights": []
+        },
+        {
+            "subtask": "cloud_removal",
+            "model": "dvpnet",
+            "script_path": "/home/project/satagent/sata/executor/cloud_removal/tools/DVPNet/infer_dvpnet.py",
+            "weights": []
+        },
+        {
+            "subtask": "cloud_removal",
+            "model": "uncrtaints",
+            "script_path": "/home/project/satagent/sata/executor/cloud_removal/tools/UnCRtainTS/infer_uncrtaints.py",
+            "weights": []
+        },
+        {
+            "subtask": "cloud_removal",
+            "model": "emrdm",
+            "script_path": "/home/project/satagent/sata/executor/cloud_removal/tools/EMRDM/infer_emrdm.py",
+            "weights": []
+        },
+        {
+            "subtask": "cloud_removal",
+            "model": "cloud_mamba",
+            "script_path": "/home/project/satagent/sata/executor/cloud_removal/tools/CloudMamba/infer_cloudmamba.py",
+            "weights": []
+        },
+        {
+            "subtask": "dehazing",
+            "model": "rsdehamba",
+            "script_path": "/home/project/satagent/sata/executor/dehazing/tools/RSDehamba/infer_rsdehamba.py",
+            "weights": [
+                {
+                    "path": "/home/project/satagent/sata/pretrained_ckpts/RSDehamba/rsdehamba.pth",
+                    "exists": false
+                }
+            ]
+        },
+        {
+            "subtask": "dehazing",
+            "model": "rshazenet",
+            "script_path": "/home/project/satagent/sata/executor/dehazing/tools/RSHazeNet/infer_rshazenet.py",
+            "weights": [
+                {
+                    "path": "/home/project/satagent/sata/pretrained_ckpts/RSHazeNet/rshazenet.pth",
+                    "exists": false
+                }
+            ]
+        },
+        {
+            "subtask": "dehazing",
+            "model": "dehazeformer",
+            "script_path": "/home/project/satagent/sata/executor/dehazing/tools/DehazeFormer/infer_dehazeformer.py",
+            "weights": []
+        },
+        {
+            "subtask": "dehazing",
+            "model": "xrestormer",
+            "script_path": "/home/project/satagent/sata/executor/dehazing/tools/X-Restormer/xrestormer/inference.py",
+            "weights": []
+        },
+        {
+            "subtask": "dehazing",
+            "model": "maxim",
+            "script_path": "/home/project/satagent/sata/executor/dehazing/tools/maxim/maxim/infer_maxim_4kagent.py",
+            "weights": [
+                {
+                    "path": "/home/project/satagent/sata/pretrained_ckpts/MAXIM/maxim_ckpt_Dehazing_SOTS-Outdoor_checkpoint.npz",
+                    "exists": false
+                }
+            ]
+        },
+        {
+            "subtask": "dehazing",
+            "model": "dehazing_diffgan",
+            "script_path": "/home/project/satagent/sata/executor/dehazing/tools/DehazingDiffGAN/infer_dehazing_diffgan.py",
+            "weights": [
+                {
+                    "path": "/home/project/satagent/sata/pretrained_ckpts/DehazingDiffGAN/diffgan_dehaze.pth",
+                    "exists": false
+                }
+            ]
+        },
+        {
+            "subtask": "dehazing",
+            "model": "ridcp",
+            "script_path": "/home/project/satagent/sata/executor/dehazing/tools/RIDCP_dehazing/infer_ridcp_4kagent.py",
+            "weights": [
+                {
+                    "path": "/home/project/satagent/sata/pretrained_ckpts/RIDCP_dehazing/pretrained_RIDCP.pth",
+                    "exists": false
+                }
+            ]
+        },
+        {
+            "subtask": "shadow_correction",
+            "model": "shadowformer",
+            "script_path": "/home/project/satagent/sata/executor/shadow_correction/tools/ShadowFormer/infer_shadowformer.py",
+            "weights": []
+        },
+        {
+            "subtask": "shadow_correction",
+            "model": "enlighten_gan_rs",
+            "script_path": "/home/project/satagent/sata/executor/shadow_correction/tools/EnlightenGAN_RS/infer_enlightengan_rs.py",
+            "weights": []
+        },
+        {
+            "subtask": "denoising",
+            "model": "satmae",
+            "script_path": "/home/project/satagent/sata/executor/denoising/tools/SatMAE/infer_satmae_denoise.py",
+            "weights": [
+                {
+                    "path": "/home/project/satagent/sata/pretrained_ckpts/SatMAE/satmae_denoise.pth",
+                    "exists": true
+                }
+            ]
+        },
+        {
+            "subtask": "denoising",
+            "model": "nafnet_rs",
+            "script_path": "/home/project/satagent/sata/executor/denoising/tools/NAFNet/infer_nafnet_rs_denoise.py",
+            "weights": [
+                {
+                    "path": "/home/project/satagent/sata/pretrained_ckpts/NAFNet_RS/nafnet_rs_denoise.pth",
+                    "exists": true
+                }
+            ]
+        },
+        {
+            "subtask": "denoising",
+            "model": "restormer",
+            "script_path": "/home/project/satagent/sata/executor/denoising/tools/Restormer/infer_restormer_4kagent.py",
+            "weights": [
+                {
+                    "path": "/home/project/satagent/sata/pretrained_ckpts/Restormer/real_denoising.pth",
+                    "exists": true
+                }
+            ]
+        },
+        {
+            "subtask": "denoising",
+            "model": "mprnet",
+            "script_path": "/home/project/satagent/sata/executor/denoising/tools/MPRNet/infer_mprnet_4kagent.py",
+            "weights": [
+                {
+                    "path": "/home/project/satagent/sata/pretrained_ckpts/MPRNet/model_denoising.pth",
+                    "exists": true
+                }
+            ]
+        },
+        {
+            "subtask": "denoising",
+            "model": "xrestormer",
+            "script_path": "/home/project/satagent/sata/executor/denoising/tools/X-Restormer/xrestormer/inference.py",
+            "weights": []
+        },
+        {
+            "subtask": "denoising",
+            "model": "swinir_15",
+            "script_path": "/home/project/satagent/sata/executor/denoising/tools/SwinIR/infer_swinir_4kagent.py",
+            "weights": [
+                {
+                    "path": "/home/project/satagent/sata/pretrained_ckpts/SwinIR/005_colorDN_DFWB_s128w8_SwinIR-M_noise15.pth",
+                    "exists": true
+                }
+            ]
+        },
+        {
+            "subtask": "denoising",
+            "model": "swinir_50",
+            "script_path": "/home/project/satagent/sata/executor/denoising/tools/SwinIR/infer_swinir_4kagent.py",
+            "weights": [
+                {
+                    "path": "/home/project/satagent/sata/pretrained_ckpts/SwinIR/005_colorDN_DFWB_s128w8_SwinIR-M_noise50.pth",
+                    "exists": true
+                }
+            ]
+        },
+        {
+            "subtask": "denoising",
+            "model": "nafnet",
+            "script_path": "/home/project/satagent/sata/executor/denoising/tools/NAFNet/nafnet/inference.py",
+            "weights": []
+        },
+        {
+            "subtask": "denoising",
+            "model": "maxim",
+            "script_path": "/home/project/satagent/sata/executor/denoising/tools/maxim/maxim/infer_maxim_4kagent.py",
+            "weights": [
+                {
+                    "path": "/home/project/satagent/sata/pretrained_ckpts/MAXIM/maxim_ckpt_Denoising_SIDD_checkpoint.npz",
+                    "exists": false
+                }
+            ]
+        },
+        {
+            "subtask": "denoising",
+            "model": "diffusionsat",
+            "script_path": "/home/project/satagent/sata/executor/denoising/tools/DiffusionSAT/infer_diffusionsat.py",
+            "weights": [
+                {
+                    "path": "/home/project/satagent/sata/pretrained_ckpts/DiffusionSat/diffusionsat_denoise.pth",
+                    "exists": false
+                }
+            ]
+        },
+        {
+            "subtask": "deblurring",
+            "model": "pirn",
+            "script_path": "/home/project/satagent/sata/executor/deblurring/tools/PiRN/infer_pirn.py",
+            "weights": [
+                {
+                    "path": "/home/project/satagent/sata/pretrained_ckpts/PiRN/pirn_orbital.pth",
+                    "exists": false
+                }
+            ]
+        },
+        {
+            "subtask": "deblurring",
+            "model": "stripformer",
+            "script_path": "/home/project/satagent/sata/executor/deblurring/tools/StripFormer/infer_stripformer.py",
+            "weights": [
+                {
+                    "path": "/home/project/satagent/sata/pretrained_ckpts/StripFormer/stripformer_gopro.pth",
+                    "exists": false
+                }
+            ]
+        },
+        {
+            "subtask": "deblurring",
+            "model": "restormer",
+            "script_path": "/home/project/satagent/sata/executor/deblurring/tools/Restormer/infer_restormer.py",
+            "weights": [
+                {
+                    "path": "/home/project/satagent/sata/pretrained_ckpts/Restormer/motion_deblurring.pth",
+                    "exists": true
+                }
+            ]
+        },
+        {
+            "subtask": "deblurring",
+            "model": "mprnet",
+            "script_path": "/home/project/satagent/sata/executor/deblurring/tools/MPRNet/infer_mprnet_4kagent.py",
+            "weights": [
+                {
+                    "path": "/home/project/satagent/sata/pretrained_ckpts/MPRNet/model_deblurring.pth",
+                    "exists": true
+                }
+            ]
+        },
+        {
+            "subtask": "deblurring",
+            "model": "xrestormer",
+            "script_path": "/home/project/satagent/sata/executor/deblurring/tools/Restormer/infer_restormer.py",
+            "weights": []
+        },
+        {
+            "subtask": "deblurring",
+            "model": "nafnet",
+            "script_path": "/home/project/satagent/sata/executor/deblurring/tools/NAFNet/nafnet/inference.py",
+            "weights": []
+        },
+        {
+            "subtask": "deblurring",
+            "model": "EVSSM",
+            "script_path": "/home/project/satagent/sata/executor/deblurring/tools/EVSSM/infer_evssm_4kagent.py",
+            "weights": [
+                {
+                    "path": "/home/project/satagent/sata/pretrained_ckpts/EVSSM/net_g_GoPro.pth",
+                    "exists": true
+                }
+            ]
+        },
+        {
+            "subtask": "deblurring",
+            "model": "maxim",
+            "script_path": "/home/project/satagent/sata/executor/deblurring/tools/maxim/maxim/infer_maxim_4kagent.py",
+            "weights": [
+                {
+                    "path": "/home/project/satagent/sata/pretrained_ckpts/MAXIM/maxim_ckpt_Deblurring_RealBlur_R_checkpoint.npz",
+                    "exists": false
+                }
+            ]
+        },
+        {
+            "subtask": "deblurring",
+            "model": "blur_mamba",
+            "script_path": "/home/project/satagent/sata/executor/deblurring/tools/BlurMamba/infer_blurmamba.py",
+            "weights": [
+                {
+                    "path": "/home/project/satagent/sata/pretrained_ckpts/BlurMamba/blurmamba_sat.pth",
+                    "exists": false
+                }
+            ]
+        },
+        {
+            "subtask": "deblurring",
+            "model": "deblurdiff",
+            "script_path": "/home/project/satagent/sata/executor/deblurring/tools/Deblurdiff/infer_deblurdiff.py",
+            "weights": [
+                {
+                    "path": "/home/project/satagent/sata/pretrained_ckpts/DeblurDiff/deblurdiff.pth",
+                    "exists": false
+                }
+            ]
+        },
+        {
+            "subtask": "destriping",
+            "model": "qgcn",
+            "script_path": "/home/project/satagent/sata/executor/destriping/tools/QGCN/infer_qgcn.py",
+            "weights": []
+        },
+        {
+            "subtask": "destriping",
+            "model": "sst_net",
+            "script_path": "/home/project/satagent/sata/executor/destriping/tools/SSTNet/infer_sstnet.py",
+            "weights": []
+        },
+        {
+            "subtask": "destriping",
+            "model": "repaint_rs",
+            "script_path": "/home/project/satagent/sata/executor/destriping/tools/RepaintRS/infer_repaint_rs.py",
+            "weights": []
+        },
+        {
+            "subtask": "artifact_removal",
+            "model": "fbcnn_blind",
+            "script_path": "/home/project/satagent/sata/executor/artifact_removal/tools/FBCNN/infer_fbcnn.py",
+            "weights": []
+        },
+        {
+            "subtask": "artifact_removal",
+            "model": "fbcnn_5",
+            "script_path": "/home/project/satagent/sata/executor/artifact_removal/tools/FBCNN/infer_fbcnn.py",
+            "weights": []
+        },
+        {
+            "subtask": "artifact_removal",
+            "model": "fbcnn_90",
+            "script_path": "/home/project/satagent/sata/executor/artifact_removal/tools/FBCNN/infer_fbcnn.py",
+            "weights": []
+        },
+        {
+            "subtask": "artifact_removal",
+            "model": "nafnet_jpeg",
+            "script_path": "/home/project/satagent/sata/executor/artifact_removal/tools/NAFNet/infer_nafnet_jpeg.py",
+            "weights": [
+                {
+                    "path": "/home/project/satagent/sata/pretrained_ckpts/NAFNet_JPEG/nafnet_jpeg_aid.pth",
+                    "exists": true
+                }
+            ]
+        },
+        {
+            "subtask": "artifact_removal",
+            "model": "swinir_40",
+            "script_path": "/home/project/satagent/sata/executor/artifact_removal/tools/swinIR/infer_swinir.py",
+            "weights": [
+                {
+                    "path": "/home/project/satagent/sata/pretrained_ckpts/SwinIR/006_colorCAR_DFWB_s126w7_SwinIR-M_jpeg40.pth",
+                    "exists": true
+                }
+            ]
+        },
+        {
+            "subtask": "artifact_removal",
+            "model": "swinir_car",
+            "script_path": "/home/project/satagent/sata/executor/artifact_removal/tools/swinIR/infer_swinir.py",
+            "weights": [
+                {
+                    "path": "/home/project/satagent/sata/pretrained_ckpts/SwinIR/006_colorCAR_DFWB_s126w7_SwinIR-M_jpeg40.pth",
+                    "exists": true
+                }
+            ]
+        },
+        {
+            "subtask": "pan_sharpen",
+            "model": "pan_mamba",
+            "script_path": "/home/project/satagent/sata/executor/pan_sharpen/tools/PanMamba/infer_panmamba.py",
+            "weights": []
+        },
+        {
+            "subtask": "pan_sharpen",
+            "model": "adwm",
+            "script_path": "/home/project/satagent/sata/executor/pan_sharpen/tools/ADWM/ADWM/infer_adwm.py",
+            "weights": []
+        },
+        {
+            "subtask": "pan_sharpen",
+            "model": "mgdn",
+            "script_path": "/home/project/satagent/sata/executor/pan_sharpen/tools/MGDN/infer_mgdn.py",
+            "weights": []
+        },
+        {
+            "subtask": "pan_sharpen",
+            "model": "premix",
+            "script_path": "/home/project/satagent/satagent_impl/executor/pan_sharpen/tools/PreMix/PreMix/infer_premix.py",
+            "weights": []
+        },
+        {
+            "subtask": "temporal_fusion",
+            "model": "transfusion",
+            "script_path": "/home/project/satagent/sata/executor/temporal_fusion/tools/TransFusion/infer_transfusion.py",
+            "weights": []
+        },
+        {
+            "subtask": "temporal_fusion",
+            "model": "timesformer_rs",
+            "script_path": "/home/project/satagent/sata/executor/temporal_fusion/tools/TimeSformerRS/infer_timesformer_rs.py",
+            "weights": []
+        },
+        {
+            "subtask": "super_resolution",
+            "model": "hat_psnr",
+            "script_path": "/home/project/satagent/sata/executor/super_resolution/tools/HAT/hat/infer_hat_4kagent.py",
+            "weights": []
+        },
+        {
+            "subtask": "super_resolution",
+            "model": "swinfir",
+            "script_path": "/home/project/satagent/sata/executor/super_resolution/tools/SwinFIR/infer_swinfir_4kagent.py",
+            "weights": [
+                {
+                    "path": "/home/project/satagent/sata/pretrained_ckpts/SwinFIR/SwinFIR_SRx4.pth",
+                    "exists": false
+                }
+            ]
+        },
+        {
+            "subtask": "super_resolution",
+            "model": "hma",
+            "script_path": "/home/project/satagent/sata/executor/super_resolution/tools/HMA/hma/infer_hma_4kagent.py",
+            "weights": []
+        },
+        {
+            "subtask": "super_resolution",
+            "model": "rep_mamba",
+            "script_path": "/home/project/satagent/sata/executor/super_resolution/tools/Rep-Mamba/infer_rep_mamba.py",
+            "weights": [
+                {
+                    "path": "/home/project/satagent/sata/pretrained_ckpts/RepMamba/rep_mamba_sat_4x.pth",
+                    "exists": false
+                }
+            ]
+        },
+        {
+            "subtask": "super_resolution",
+            "model": "prithvi",
+            "script_path": "/home/project/satagent/sata/executor/super_resolution/tools/Prithvi/infer_prithvi_sr.py",
+            "weights": [
+                {
+                    "path": "/home/project/satagent/sata/pretrained_ckpts/Prithvi/prithvi_sr_4x.pth",
+                    "exists": false
+                }
+            ]
+        },
+        {
+            "subtask": "super_resolution",
+            "model": "xrestormer",
+            "script_path": "/home/project/satagent/sata/executor/super_resolution/tools/X-Restormer/xrestormer/inference.py",
+            "weights": []
+        },
+        {
+            "subtask": "super_resolution",
+            "model": "swinir_psnr",
+            "script_path": "/home/project/satagent/sata/executor/super_resolution/tools/SwinIR/infer_swinir_4kagent.py",
+            "weights": [
+                {
+                    "path": "/home/project/satagent/sata/pretrained_ckpts/SwinIR/003_realSR_BSRGAN_DFOWMFC_s64w8_SwinIR-L_x4_PSNR.pth",
+                    "exists": true
+                }
+            ]
+        },
+        {
+            "subtask": "super_resolution",
+            "model": "nafnet",
+            "script_path": "/home/project/satagent/sata/executor/super_resolution/tools/NAFNet/nafnet/inference.py",
+            "weights": []
+        },
+        {
+            "subtask": "super_resolution",
+            "model": "diffbir",
+            "script_path": "/home/project/satagent/sata/executor/super_resolution/tools/DiffBIR/infer_diffbir.py",
+            "weights": []
+        },
+        {
+            "subtask": "super_resolution",
+            "model": "osediff",
+            "script_path": "/home/project/satagent/sata/executor/super_resolution/tools/OSEDiff/infer_osediff_4kagent.py",
+            "weights": [
+                {
+                    "path": "/home/project/satagent/sata/pretrained_ckpts/OSEDiff/DAPE/DAPE.pth",
+                    "exists": false
+                }
+            ]
+        },
+        {
+            "subtask": "super_resolution",
+            "model": "osediff",
+            "script_path": "/home/project/satagent/sata/executor/super_resolution/tools/OSEDiff/infer_osediff_4kagent.py",
+            "weights": [
+                {
+                    "path": "/home/project/satagent/sata/pretrained_ckpts/OSEDiff/RAM/ram_swin_large_14m.pth",
+                    "exists": false
+                }
+            ]
+        },
+        {
+            "subtask": "super_resolution",
+            "model": "pisasr",
+            "script_path": "/home/project/satagent/sata/executor/super_resolution/tools/PiSA-SR/infer_pisasr_4kagent.py",
+            "weights": [
+                {
+                    "path": "/home/project/satagent/sata/pretrained_ckpts/PiSA-SR/pisa_sr.pkl",
+                    "exists": false
+                }
+            ]
+        },
+        {
+            "subtask": "super_resolution",
+            "model": "hat_gan",
+            "script_path": "/home/project/satagent/sata/executor/super_resolution/tools/HAT/hat/infer_hat_4kagent.py",
+            "weights": []
+        },
+        {
+            "subtask": "super_resolution",
+            "model": "swinir_gan",
+            "script_path": "/home/project/satagent/sata/executor/super_resolution/tools/SwinIR/infer_swinir_4kagent.py",
+            "weights": [
+                {
+                    "path": "/home/project/satagent/sata/pretrained_ckpts/SwinIR/003_realSR_BSRGAN_DFOWMFC_s64w8_SwinIR-L_x4_GAN.pth",
+                    "exists": true
+                }
+            ]
+        },
+        {
+            "subtask": "super_resolution",
+            "model": "satdiff",
+            "script_path": "/home/project/satagent/sata/executor/super_resolution/tools/SatDiff/infer_satdiff.py",
+            "weights": [
+                {
+                    "path": "/home/project/satagent/sata/pretrained_ckpts/SatDiff/satdiff_4x.pth",
+                    "exists": false
+                }
+            ]
+        },
+        {
+            "subtask": "super_resolution",
+            "model": "transenet",
+            "script_path": "/home/project/satagent/sata/executor/super_resolution/tools/TransENet/infer_transenet.py",
+            "weights": [
+                {
+                    "path": "/home/project/satagent/sata/pretrained_ckpts/TransENet/transenet_4x.pth",
+                    "exists": true
+                }
+            ]
+        }
+    ]
+}

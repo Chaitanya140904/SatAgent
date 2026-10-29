@@ -1,0 +1,10 @@
+
+# Datasets and Heavy Weights
+datasets/
+*.pth
+*.pt
+*.ckpt
+*.safetensors
+outputs/*
+*.pyc
+tests/*

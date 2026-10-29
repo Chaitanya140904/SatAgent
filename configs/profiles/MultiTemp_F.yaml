@@ -1,0 +1,36 @@
+# ============================================================
+# SatAgent Profile: MultiTemp-F  (Multi-Temporal Fusion / Fidelity)
+# ============================================================
+# Evaluation metrics: PSNR, SSIM, SAM
+# Use case: Change-detection / temporal analysis (SpaceNet, OSCD).
+# Enables Phase-3B multi-temporal fusion.
+# ============================================================
+
+profile_name: "MultiTemp-F"
+
+perception:
+  vlm_model_id: "unsloth/Llama-3.2-11B-Vision-Instruct-bnb-4bit"
+  max_new_tokens: 1024
+
+restoration:
+  preference: "Fidelity"
+  target_resolution: [4096, 4096]
+  enable_roi_masking: true
+  enable_temporal_fusion: true
+  allowed_agenda:
+    - "cloud removal"
+    - "dehazing"
+    - "shadow correction"
+    - "sensor denoising"
+    - "sensor deblurring"
+    - "destriping"
+    - "compression artifact removal"
+    - "pan-sharpening"
+    - "multi-temporal fusion"
+    - "super-resolution"
+
+qa:
+  niqe_rollback_threshold: 1.5
+  entropy_rollback_threshold: 0.10
+  attempt_fallback_on_rollback: true
+  max_rollback_retries: 1

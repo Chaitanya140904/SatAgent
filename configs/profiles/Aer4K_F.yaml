@@ -1,0 +1,77 @@
+# # ============================================================
+# # SatAgent Profile: Aer4K-F  (Fidelity / Mathematical Truth)
+# # ============================================================
+# # Evaluation metrics: PSNR, SSIM, SAM (Spectral Angle Mapper)
+# # Target: Maximum pixel-level accuracy for scientific analysis.
+# # Model selection: deterministic CNN/Transformer-based models.
+# # ============================================================
+
+# profile_name: "Aer4K-F"
+
+# perception:
+#   vlm_model_id: "unsloth/Llama-3.2-11B-Vision-Instruct-bnb-4bit"
+#   max_new_tokens: 1024
+
+# restoration:
+#   preference: "Fidelity"
+#   target_resolution: [4096, 4096]
+#   enable_roi_masking: true
+#   enable_temporal_fusion: false
+#   allowed_agenda:
+#     - "cloud removal"
+#     - "dehazing"
+#     - "shadow correction"
+#     - "sensor denoising"
+#     - "sensor deblurring"
+#     - "destriping"
+#     - "compression artifact removal"
+#     - "pan-sharpening"
+#     - "super-resolution"
+
+# qa:
+#   # Fidelity mode is stricter – tighter rollback thresholds
+#   niqe_rollback_threshold: 1.5
+#   entropy_rollback_threshold: 0.10
+#   # SR-specific allowance to avoid false rollback on legitimate denoise-like entropy drop.
+#   super_resolution_entropy_allowance: 0.75
+#   attempt_fallback_on_rollback: true
+#   max_rollback_retries: 1
+
+# ============================================================
+# SatAgent Profile: Aer4K-F (Fidelity / Mathematical Truth)
+# ============================================================
+profile_name: "Aer4K-F"
+
+perception:
+  vlm_model_id: "unsloth/Llama-3.2-11B-Vision-Instruct-bnb-4bit"
+  max_new_tokens: 1024
+
+restoration:
+  preference: "Fidelity"
+  target_resolution: [4096, 4096]
+  enable_roi_masking: true
+  enable_temporal_fusion: false
+  allowed_agenda:
+    - "cloud removal"
+    - "dehazing"
+    - "sensor denoising"
+    - "sensor deblurring"
+    - "compression artifact removal"
+    - "super-resolution"
+
+  model_candidates:
+    denoising:
+      Fidelity: ["nafnet_rs", "restormer", "mprnet"]
+    deblurring:
+      Fidelity: ["mprnet", "restormer"]
+    artifact_removal:
+      Fidelity: ["swinir_car", "nafnet_jpeg"]
+    super_resolution:
+      Fidelity: ["swinir_psnr", "transenet"]
+
+qa:
+  niqe_rollback_threshold: 4.5       # Reasonable for satellite imagery
+  entropy_rollback_threshold: 0.30   # Crucial: allows the -0.242 drop from RIDCP
+  super_resolution_entropy_allowance: 15.0
+  attempt_fallback_on_rollback: false # Safety: don't let it touch diffgan
+  max_rollback_retries: 1

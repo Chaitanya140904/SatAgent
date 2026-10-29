@@ -1,0 +1,27 @@
+{
+  "ridcp": {
+    "success": 2,
+    "timeout": 0,
+    "qa_rollback": 0
+  },
+  "cloud_net_plus": {
+    "success": 3,
+    "timeout": 0,
+    "qa_rollback": 0
+  },
+  "dvpnet": {
+    "success": 1,
+    "timeout": 0,
+    "qa_rollback": 0
+  },
+  "emrdm": {
+    "success": 2,
+    "timeout": 0,
+    "qa_rollback": 0
+  },
+  "swinir_gan": {
+    "success": 1,
+    "timeout": 0,
+    "qa_rollback": 0
+  }
+}

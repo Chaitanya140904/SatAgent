@@ -1,0 +1,74 @@
+# # ============================================================
+# # SatAgent Profile: Aer4K-P  (Perception / Visual Realism)
+# # ============================================================
+# # Evaluation metrics: NIQE, LPIPS, FID
+# # Target: Maximum visual fidelity for display / publication use.
+# # Model selection: diffusion / GAN-based perceptual models.
+# # ============================================================
+
+# profile_name: "Aer4K-P"
+
+# perception:
+#   vlm_model_id: "unsloth/Llama-3.2-11B-Vision-Instruct-bnb-4bit"
+#   max_new_tokens: 1024
+
+# restoration:
+#   preference: "Perception"
+#   target_resolution: [4096, 4096]
+#   enable_roi_masking: true
+#   enable_temporal_fusion: false
+#   allowed_agenda:
+#     - "cloud removal"
+#     - "dehazing"
+#     - "shadow correction"
+#     - "sensor denoising"
+#     - "sensor deblurring"
+#     - "destriping"
+#     - "compression artifact removal"
+#     - "pan-sharpening"
+#     - "super-resolution"
+
+# qa:
+#   niqe_rollback_threshold: 2.5
+#   entropy_rollback_threshold: 0.20
+#   attempt_fallback_on_rollback: true
+#   max_rollback_retries: 1
+# ============================================================
+# SatAgent Profile: Aer4K-P (Perception / Visual Realism)
+# ============================================================
+profile_name: "4KAgent-Purist"
+
+restoration:
+  preference: "Perception"
+  target_resolution: [3840, 2160] # This triggers the dynamic Upscale Calculator (Eq 1)
+  
+  # FULL UNMASKED AGENDA: The VLM has total freedom to choose based on IQA.
+  allowed_agenda:
+    - "cloud removal"
+    - "dehazing"
+    - "sensor denoising"
+    - "sensor deblurring"
+    - "destriping"
+    - "compression artifact removal"
+    - "super-resolution"
+
+  # Q-MoE TOOLBOX: Local models first, network-fetch models second.
+  model_candidates:
+    cloud removal:
+      Perception: ["emrdm"]
+    dehazing:
+      Perception: ["ridcp"]
+    denoising:
+      Perception: ["nafnet_rs", "satmae"]
+    deblurring:
+      Perception: ["restormer", "mprnet"]
+    artifact_removal:
+      Perception: ["nafnet_jpeg"]
+    super_resolution:
+      Perception: ["swinir_gan", "transenet"]
+
+qa:
+  # The Q-MoE Rollback Threshold
+  niqe_rollback_threshold: 4.5
+  entropy_rollback_threshold: 0.35  # This allows the -0.258 drop from ridcp
+  attempt_fallback_on_rollback: false # Stop it from trying diffgan

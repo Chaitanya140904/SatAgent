@@ -1,0 +1,337 @@
+{
+  "rs_sam": {
+    "python_bin": "python3",
+    "script_path": "executor/roi_masking/tools/RS-SAM/infer_rs_sam.py",
+    "weights": "pretrained_ckpts/RS-SAM/rs_sam.pth",
+    "routing": "pre-process",
+    "in_flag": "--input_path",
+    "out_flag": "--output_path",
+    "weight_flag": "--weights"
+  },
+  "cloud_net_plus": {
+    "python_bin": "python3",
+    "script_path": "executor/roi_masking/tools/CloudNetPlus/infer_cloudnetplus.py",
+    "weights": "pretrained_ckpts/CloudNetPlus/cloudnetplus.pth",
+    "routing": "pre-process",
+    "in_flag": "--input_path",
+    "out_flag": "--output_path",
+    "weight_flag": "--weights"
+  },
+  "yolov8_obb": {
+    "python_bin": "python3",
+    "script_path": "executor/roi_masking/tools/YOLOv8_OBB/infer_yolov8_obb.py",
+    "weights": "pretrained_ckpts/YOLOv8_OBB/yolov8_obb.pth",
+    "routing": "pre-process",
+    "in_flag": "--input_path",
+    "out_flag": "--output_path",
+    "weight_flag": "--weights"
+  },
+  "dvpnet": {
+    "python_bin": "python3",
+    "script_path": "executor/cloud_removal/tools/DVPNet/infer_dvpnet.py",
+    "weights": "pretrained_ckpts/DVPNet/dvpnet_weights.pth",
+    "routing": "local",
+    "in_flag": "--input_path",
+    "out_flag": "--output_path",
+    "weight_flag": "--weights"
+  },
+  "uncrtaints": {
+    "python_bin": "python3",
+    "script_path": "executor/cloud_removal/tools/UnCRtainTS/infer_uncrtaints.py",
+    "weights": "pretrained_ckpts/UnCRtainTS/uncrtaints.pth",
+    "routing": "local",
+    "in_flag": "--input_path",
+    "out_flag": "--output_path",
+    "weight_flag": "--weights"
+  },
+  "emrdm": {
+    "python_bin": "python3",
+    "script_path": "executor/cloud_removal/tools/EMRDM/infer_emrdm.py",
+    "weights": "pretrained_ckpts/EMRDM/emrdm.pth",
+    "routing": "local",
+    "in_flag": "--input_path",
+    "out_flag": "--output_path",
+    "weight_flag": "--weights"
+  },
+  "cloud_mamba": {
+    "python_bin": "python3",
+    "script_path": "executor/cloud_removal/tools/CloudMamba/infer_cloudmamba.py",
+    "weights": "pretrained_ckpts/CloudMamba/cloud_mamba.pth",
+    "routing": "local",
+    "in_flag": "--input_path",
+    "out_flag": "--output_path",
+    "weight_flag": "--weights"
+  },
+  "rsdehamba": {
+    "python_bin": "python3",
+    "script_path": "executor/dehazing/tools/RSDehamba/infer_rsdehamba.py",
+    "weights": "pretrained_ckpts/RSDehamba/rsdehamba.pth",
+    "routing": "global",
+    "in_flag": "--input_path",
+    "out_flag": "--output_path",
+    "weight_flag": "--weights"
+  },
+  "rshazenet": {
+    "python_bin": "python3",
+    "script_path": "executor/dehazing/tools/RSHazeNet/infer_rshazenet.py",
+    "weights": "pretrained_ckpts/RSHazeNet/rshazenet.pth",
+    "routing": "global",
+    "in_flag": "--input_path",
+    "out_flag": "--output_path",
+    "weight_flag": "--weights"
+  },
+  "dehazing_diffgan": {
+    "python_bin": "python3",
+    "script_path": "executor/dehazing/tools/DehazingDiffGAN/infer_dehazing_diffgan.py",
+    "weights": "pretrained_ckpts/DehazingDiffGAN/dehazing_diffgan.pth",
+    "routing": "global",
+    "in_flag": "--input_path",
+    "out_flag": "--output_path",
+    "weight_flag": "--weights"
+  },
+  "ridcp": {
+    "python_bin": "python3",
+    "script_path": "executor/dehazing/tools/RIDCP/inference_ridcp.py",
+    "weights": "pretrained_ckpts/RIDCP_dehazing/pretrained_RIDCP.pth",
+    "routing": "global",
+    "in_flag": "--input",
+    "out_flag": "--output",
+    "weight_flag": "--weights"
+  },
+  "shadowformer": {
+    "python_bin": "python3",
+    "script_path": "executor/shadow_correction/tools/ShadowFormer/infer_shadowformer.py",
+    "weights": "pretrained_ckpts/ShadowFormer/shadowformer.pth",
+    "routing": "local",
+    "in_flag": "--input_path",
+    "out_flag": "--output_path",
+    "weight_flag": "--weights"
+  },
+  "enlightengan_rs": {
+    "python_bin": "python3",
+    "script_path": "executor/shadow_correction/tools/EnlightenGAN_RS/infer_enlightengan_rs.py",
+    "weights": "pretrained_ckpts/EnlightenGAN_RS/enlightengan_rs.pth",
+    "routing": "local",
+    "in_flag": "--input_path",
+    "out_flag": "--output_path",
+    "weight_flag": "--weights"
+  },
+  "satmae": {
+    "python_bin": "python3",
+    "script_path": "executor/denoising/tools/SatMAE/infer_satmae_denoise.py",
+    "weights": "pretrained_ckpts/SatMAE/satmae_denoise.pth",
+    "routing": "global",
+    "in_flag": "--input_path",
+    "out_flag": "--output_path",
+    "weight_flag": "--weights"
+  },
+  "nafnet_rs": {
+    "python_bin": "python3",
+    "script_path": "executor/denoising/tools/NAFNET/infer_nafnet.py",
+    "weights": "pretrained_ckpts/NAFNet_RS/nafnet_rs_denoise.pth",
+    "routing": "global",
+    "in_flag": "--input_path",
+    "out_flag": "--output_path",
+    "weight_flag": "--weights"
+  },
+  "diffusionsat": {
+    "python_bin": "python3",
+    "script_path": "executor/denoising/tools/DiffusionSAT/infer_diffusionsat.py",
+    "weights": "pretrained_ckpts/DiffusionSAT/diffusionsat.pth",
+    "routing": "global",
+    "in_flag": "--input_path",
+    "out_flag": "--output_path",
+    "weight_flag": "--weights"
+  },
+  "pirn": {
+    "python_bin": "python3",
+    "script_path": "executor/deblurring/tools/PiRN/infer_pirn.py",
+    "weights": "pretrained_ckpts/PiRN/pirn.pth",
+    "routing": "global",
+    "in_flag": "--input_path",
+    "out_flag": "--output_path",
+    "weight_flag": "--weights"
+  },
+  "stripformer": {
+    "python_bin": "python3",
+    "script_path": "infer_stripformer.py",
+    "weights": "pretrained_ckpts/Stripformer/stripformer.pth",
+    "routing": "global",
+    "in_flag": "--input_path",
+    "out_flag": "--output_path",
+    "weight_flag": "--weights",
+    "cwd": "executor/deblurring/tools/StripFormer"
+  },
+  "blur_mamba": {
+    "python_bin": "python3",
+    "script_path": "executor/deblurring/tools/BlurMamba/infer_blurmamba.py",
+    "weights": "pretrained_ckpts/BlurMamba/blur_mamba.pth",
+    "routing": "global",
+    "in_flag": "--input_path",
+    "out_flag": "--output_path",
+    "weight_flag": "--weights"
+  },
+  "deblurdiff": {
+    "python_bin": "python3",
+    "script_path": "executor/deblurring/tools/Deblurdiff/infer_deblurdiff.py",
+    "weights": "pretrained_ckpts/Deblurdiff/deblurdiff.pth",
+    "routing": "global",
+    "in_flag": "--input_path",
+    "out_flag": "--output_path",
+    "weight_flag": "--weights"
+  },
+  "qgcn": {
+    "python_bin": "python3",
+    "script_path": "executor/destriping/tools/QGCN/infer_qgcn.py",
+    "weights": "pretrained_ckpts/QGCN/qgcn.pth",
+    "routing": "local",
+    "in_flag": "--input_path",
+    "out_flag": "--output_path",
+    "weight_flag": "--weights"
+  },
+  "sst_net": {
+    "python_bin": "python3",
+    "script_path": "executor/destriping/tools/SSTNet/infer_sstnet.py",
+    "weights": "pretrained_ckpts/SSTNet/sst_net.pth",
+    "routing": "local",
+    "in_flag": "--input_path",
+    "out_flag": "--output_path",
+    "weight_flag": "--weights"
+  },
+  "repaint_rs": {
+    "python_bin": "python3",
+    "script_path": "executor/destriping/tools/RepaintRS/infer_repaint_rs.py",
+    "weights": "pretrained_ckpts/RepaintRS/repaint_rs.pth",
+    "routing": "local",
+    "in_flag": "--input_path",
+    "out_flag": "--output_path",
+    "weight_flag": "--weights"
+  },
+  "fbcnn": {
+    "python_bin": "python3",
+    "script_path": "executor/artifact_removal/tools/FBCNN/infer_fbcnn.py",
+    "weights": "pretrained_ckpts/FBCNN/fbcnn.pth",
+    "routing": "global",
+    "in_flag": "--input_path",
+    "out_flag": "--output_path",
+    "weight_flag": "--weights"
+  },
+  "nafnet_jpeg": {
+    "python_bin": "python3",
+    "script_path": "executor/artifact_removal/tools/NAFNET/infer_nafnet.py",
+    "weights": "pretrained_ckpts/NAFNet_JPEG/nafnet_jpeg_aid.pth",
+    "routing": "global",
+    "in_flag": "--input_path",
+    "out_flag": "--output_path",
+    "weight_flag": "--weights"
+  },
+  "swinir_car": {
+    "python_bin": "python3",
+    "script_path": "executor/artifact_removal/tools/swinIR/infer_swinir.py",
+    "weights": "pretrained_ckpts/SwinIR/006_colorCAR_DFWB_s126w7_SwinIR-M_jpeg40.pth",
+    "routing": "global",
+    "in_flag": "--input_path",
+    "out_flag": "--output_path",
+    "weight_flag": "--weights"
+  },
+  "pan_mamba": {
+    "python_bin": "python3",
+    "script_path": "executor/pan_sharpen/tools/Pan-Mamba/infer_panmamba.py",
+    "weights": "pretrained_ckpts/PanMamba/pan_mamba.pth",
+    "routing": "global",
+    "in_flag": "--input_path",
+    "out_flag": "--output_path",
+    "weight_flag": "--weights"
+  },
+  "adwm": {
+    "python_bin": "python3",
+    "script_path": "executor/pan_sharpen/tools/ADWM/infer_adwm.py",
+    "weights": "pretrained_ckpts/ADWM/adwm.pth",
+    "routing": "global",
+    "in_flag": "--input_path",
+    "out_flag": "--output_path",
+    "weight_flag": "--weights"
+  },
+  "mgdn": {
+    "python_bin": "python3",
+    "script_path": "executor/pan_sharpen/tools/MGDN/infer_mgdn.py",
+    "weights": "pretrained_ckpts/MGDN/mgdn.pth",
+    "routing": "global",
+    "in_flag": "--input_path",
+    "out_flag": "--output_path",
+    "weight_flag": "--weights"
+  },
+  "transfusion": {
+    "python_bin": "python3",
+    "script_path": "executor/temporal_fusion/tools/SwinFusion/infer_transfusion.py",
+    "weights": "pretrained_ckpts/TransFusion/transfusion.pth",
+    "routing": "global",
+    "in_flag": "--input_path",
+    "out_flag": "--output_path",
+    "weight_flag": "--weights"
+  },
+  "timesformer_rs": {
+    "python_bin": "python3",
+    "script_path": "executor/temporal_fusion/tools/TimeSformerRS/infer_timesformer_rs.py",
+    "weights": "pretrained_ckpts/TimeSformerRS/timesformer_rs.pth",
+    "routing": "global",
+    "in_flag": "--input_path",
+    "out_flag": "--output_path",
+    "weight_flag": "--weights"
+  },
+  "rep_mamba": {
+    "python_bin": "python3",
+    "script_path": "executor/super_resolution/tools/Rep-Mamba/infer_rep_mamba.py",
+    "weights": "pretrained_ckpts/Rep-Mamba/repmamba.pth",
+    "routing": "global",
+    "in_flag": "--input_path",
+    "out_flag": "--output_path",
+    "weight_flag": "--weights"
+  },
+  "prithvi": {
+    "python_bin": "python3",
+    "script_path": "executor/super_resolution/tools/Prithvi/infer_prithvi_sr.py",
+    "weights": "pretrained_ckpts/Prithvi/prithvi.pth",
+    "routing": "global",
+    "in_flag": "--input_path",
+    "out_flag": "--output_path",
+    "weight_flag": "--weights"
+  },
+  "satdiff": {
+    "python_bin": "python3",
+    "script_path": "executor/super_resolution/tools/SatDiff/infer_satdiff.py",
+    "weights": "pretrained_ckpts/SatDiff/satdiff.pth",
+    "routing": "global",
+    "in_flag": "--input_path",
+    "out_flag": "--output_path",
+    "weight_flag": "--weights"
+  },
+  "transenet": {
+    "python_bin": "python3",
+    "script_path": "executor/super_resolution/tools/TransENet/infer_transenet.py",
+    "weights": "pretrained_ckpts/TransENet/transenet_4x.pth",
+    "routing": "global",
+    "in_flag": "--input_path",
+    "out_flag": "--output_path",
+    "weight_flag": "--weights"
+  },
+  "swinir_gan": {
+    "python_bin": "python3",
+    "script_path": "executor/artifact_removal/tools/swinIR/infer_swinir.py",
+    "weights": "pretrained_ckpts/SwinIR/003_realSR_BSRGAN_DFOWMFC_s64w8_SwinIR-L_x4_GAN.pth",
+    "routing": "global",
+    "in_flag": "--input_path",
+    "out_flag": "--output_path",
+    "weight_flag": "--weights",
+    "extra_args": ["--task", "real_sr", "--large_model", "--scale", "4"]
+  },
+  "swinir_psnr": {
+    "python_bin": "python3",
+    "script_path": "executor/artifact_removal/tools/swinIR/infer_swinir.py",
+    "weights": "pretrained_ckpts/SwinIR/003_realSR_BSRGAN_DFOWMFC_s64w8_SwinIR-L_x4_PSNR.pth",
+    "routing": "global",
+    "in_flag": "--input_path",
+    "out_flag": "--output_path",
+    "weight_flag": "--weights"
+  }
+}

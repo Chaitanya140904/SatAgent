@@ -1,0 +1,66 @@
+# # ============================================================
+# # SatAgent Profile: Aer4K-F-DemoStable
+# # ============================================================
+# # Purpose:
+# # - Keep Fidelity-first restoration behavior.
+# # - Avoid known hard-lock fallback models during QA rollback.
+# # - Preserve strict real execution semantics (no proxy resize).
+# # ============================================================
+
+# profile_name: "Aer4K-F-DemoStable"
+
+# perception:
+#   vlm_model_id: "unsloth/Llama-3.2-11B-Vision-Instruct-bnb-4bit"
+#   max_new_tokens: 1024
+
+# restoration:
+#   preference: "Fidelity"
+#   target_resolution: [4096, 4096]
+#   enable_roi_masking: true
+#   enable_temporal_fusion: false
+#   allowed_agenda:
+#     - "cloud removal"
+#     - "dehazing"
+#     - "shadow correction"
+#     - "sensor denoising"
+#     - "sensor deblurring"
+#     - "destriping"
+#     - "compression artifact removal"
+#     - "pan-sharpening"
+#     - "super-resolution"
+
+# qa:
+#   niqe_rollback_threshold: 1.5
+#   entropy_rollback_threshold: 0.10
+#   super_resolution_entropy_allowance: 0.75
+#   attempt_fallback_on_rollback: false
+#   max_rollback_retries: 0
+profile_name: "4KAgent-Full-MoE-Inference"
+
+restoration:
+  preference: "Hybrid"
+  target_resolution: [4096, 4096]
+  enable_roi_masking: true
+  allow_remote_inference: true  # <--- The key to unlocking non-local models
+  
+  # The Floodgates: Open
+  allowed_agenda:
+    - "cloud removal"
+    - "dehazing"
+    - "shadow correction"
+    - "sensor denoising"
+    - "sensor deblurring"
+    - "destriping"
+    - "compression artifact removal"
+    - "pan-sharpening"
+    - "multi-temporal fusion"
+    - "super-resolution"
+
+  # We don't map specific models here; we let the API/Inference engine 
+  # auto-route to whatever is available in the remote backend.
+
+qa:
+  niqe_rollback_threshold: 8.0       # Maximum leniency for a 10-step cascade
+  entropy_rollback_threshold: 0.80   
+  dcp_scattering_allowance: 50.0
+  attempt_fallback_on_rollback: true

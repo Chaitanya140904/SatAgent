@@ -1,0 +1,60 @@
+# # ============================================================
+# # SatAgent Profile: Aer4K-H  (Hybrid)
+# # ============================================================
+# # Evaluation metrics: PSNR + NIQE (balanced)
+# # Target: Best structural accuracy while maintaining visual appeal.
+# # Model selection: secondary / hybrid models from the MoE table.
+# # ============================================================
+
+# profile_name: "Aer4K-H"
+
+# perception:
+#   vlm_model_id: "unsloth/Llama-3.2-11B-Vision-Instruct-bnb-4bit"
+#   max_new_tokens: 1024
+
+# restoration:
+#   preference: "Hybrid"
+#   target_resolution: [4096, 4096]
+#   enable_roi_masking: true
+#   enable_temporal_fusion: false
+#   allowed_agenda:
+#     - "cloud removal"
+#     - "dehazing"
+#     - "shadow correction"
+#     - "sensor denoising"
+#     - "sensor deblurring"
+#     - "destriping"
+#     - "compression artifact removal"
+#     - "pan-sharpening"
+#     - "super-resolution"
+
+# qa:
+#   niqe_rollback_threshold: 2.0
+#   entropy_rollback_threshold: 0.15
+#   attempt_fallback_on_rollback: true
+#   max_rollback_retries: 2
+
+profile_name: "4KAgent-Hybrid-Himalaya"
+
+restoration:
+  preference: "Hybrid"  # <--- Triggers the middle column in your selector.py
+  target_resolution: [4096, 4096]
+  enable_roi_masking: true
+  
+  allowed_agenda:
+    - "cloud removal"
+    - "dehazing"
+    - "sensor denoising"
+    - "super-resolution"
+
+  model_candidates:
+    dehazing:
+      Hybrid: ["ridcp"]
+    super_resolution:
+      Hybrid: ["swinir_gan"] # Using GAN for the 4K layer to get that texture pop
+
+qa:
+  niqe_rollback_threshold: 5.0       # More forgiving for natural terrain
+  entropy_rollback_threshold: 0.40   # Allows the -0.242 RIDCP drop
+  dcp_scattering_allowance: 30.0     # <--- The "Snow Fix": allows some DCP increase
+  attempt_fallback_on_rollback: false
